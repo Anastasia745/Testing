@@ -8,14 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ChromeTest {
     private static WebDriver driver;
-    private Buttons buttons;
 
     @BeforeClass
     public static void setup() {
@@ -33,18 +31,18 @@ public class ChromeTest {
 
 
         //WebElement login = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/form/div[2]/div/div[1]/div/div/div/div/div/div[1]/div/input"));
-        WebElement login = driver.findElement(buttons.clickLogin());
+        WebElement login = driver.findElement(By.xpath("//*[@id=\"passp-field-login\"]"));
         login.sendKeys(ConfProperties.getProperty("login"));
         //WebElement next = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/form/div[2]/div/div[3]/div/div/div[1]/button/span"));
-        WebElement next = driver.findElement(buttons.clickNext());
+        WebElement next = driver.findElement(By.xpath("//*[@id=\"passp:sign-in\"]"));
         next.click();
         TimeUnit.SECONDS.sleep(5);
 
         //WebElement password = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/form/div[2]/div/div[2]/div/div/div/div/div/input"));
-        WebElement password = driver.findElement(buttons.clickPassword());
+        WebElement password = driver.findElement(By.xpath("//*[@id=\"passp-field-passwd\"]"));
         password.sendKeys(ConfProperties.getProperty("password"));
         //WebElement ok = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/form/div[2]/div/div[3]/div/div/div[1]/div/button/span"));
-        WebElement ok = driver.findElement(buttons.clickNext());
+        WebElement ok = driver.findElement(By.xpath("//*[@id=\"passp:sign-in\"]"));
         ok.click();
         TimeUnit.SECONDS.sleep(7);
 
